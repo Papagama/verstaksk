@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Case Screenshot</title>
+    <style>
+        body {
+            padding: 40px;
+            background: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 90%;
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Screenshot Loading</h1>
+        <p>If you see the image below with green border, it works:</p>
+        
+        <img src="images/screen6.jpg" alt="Test Screenshot">
+        
+        <div id="dynamic-container" style="margin-top: 40px; border: 2px dashed blue; padding: 20px;">
+            <h2>Dynamic Insert Test:</h2>
+        </div>
+    </div>
+    
+    <script>
+        // Test dynamic insert like in portfolio.js
+        const container = document.getElementById('dynamic-container');
+        const html = '<img src="images/screen6.jpg" alt="Dynamic Screenshot" style="display: block; margin: 20px auto; max-width: 90%; border: 2px solid red;">';
+        container.innerHTML += html;
+        console.log('Dynamic HTML inserted');
+    </script>
+</body>
+</html>

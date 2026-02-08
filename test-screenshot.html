@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Screenshot</title>
+    <style>
+        body { padding: 40px; font-family: Arial; }
+        img { max-width: 100%; border: 2px solid green; }
+        .info { background: #f0f0f0; padding: 20px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Test Screenshot Loading</h1>
+    
+    <div class="info">
+        <h2>Test 1: Direct path</h2>
+        <img src="images/screen6.jpg" alt="Test 1" onload="console.log('Test 1 loaded')" onerror="console.error('Test 1 failed')">
+    </div>
+    
+    <div class="info">
+        <h2>Test 2: With ./ prefix</h2>
+        <img src="./images/screen6.jpg" alt="Test 2" onload="console.log('Test 2 loaded')" onerror="console.error('Test 2 failed')">
+    </div>
+    
+    <div class="info">
+        <h2>Test 3: Dynamic insert</h2>
+        <div id="dynamic"></div>
+    </div>
+    
+    <script>
+        const container = document.getElementById('dynamic');
+        const imgHTML = '<img src="images/screen6.jpg" alt="Test 3" onload="console.log(\'Test 3 loaded\')" onerror="console.error(\'Test 3 failed\')">';
+        container.innerHTML = imgHTML;
+        console.log('Dynamic HTML inserted:', imgHTML);
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* Tablet */
+@media (max-width: 1024px) {
+    :root { --container-px: 24px; --section-pad: 80px; --grid-gap: 40px; }
+    .hero { min-height: auto; }
+    .hero-content { grid-template-columns: 1fr; gap: 32px; padding: 80px 0 40px; }
+    .hero-media { grid-column: 1 / 13; height: auto; order: 2; }
+    .hero-media img { max-height: 60vh; min-height: 400px; width: 100%; object-fit: cover; }
+    .hero-main { grid-column: 1 / 13; padding-left: 0; order: 1; }
+    .hero h1 { font-size: clamp(2rem, 8vw, 3.5rem); }
+    .hero-footer { flex-direction: column; align-items: flex-start; gap: 20px; }
+    nav ul { gap: 20px; padding: 10px 20px; }
+    .about-grid, .work-card { grid-template-columns: 1fr; gap: 40px; }
+    .about-img-container, .about-content, .work-img, .work-info { grid-column: 1 / 13 !important; }
+    .work-info { order: 2 !important; }
+    .work-img { order: 1 !important; }
+    .services-list, .process-grid { grid-template-columns: 1fr; }
+    .service-item:nth-child(odd) { border-right: none; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    :root { --container-px: 20px; --section-pad: 60px; }
+    header { height: 70px; }
+    header.scrolled { height: 65px; }
+    .logo { font-size: 1.1rem; }
+    
+    /* Burger menu */
+    .burger { display: flex; }
+    nav { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: var(--bg); transition: right 0.4s ease; padding: 100px 30px 30px; z-index: 1000; box-shadow: -5px 0 25px rgba(0,0,0,0.1); }
+    nav.active { right: 0; }
+    nav ul { flex-direction: column; gap: 0; padding: 0; background: transparent; border: none; border-radius: 0; }
+    nav ul li { width: 100%; border-bottom: 1px solid #eee; }
+    nav ul li:last-child { border-bottom: none; }
+    nav ul a { display: block; padding: 20px 0; font-size: 0.75rem; letter-spacing: 0.2em; }
+    
+    .hero { padding-top: 70px; }
+    .hero-content { padding: 40px 0 24px; gap: 24px; }
+    .hero-media img { max-height: 55vh; min-height: 350px; }
+    .hero h1 { font-size: clamp(1.6rem, 10vw, 2.8rem); margin-bottom: 16px; }
+    .hero-bullets li { font-size: 0.9rem; }
+    .btn { padding: 16px 32px; font-size: 0.7rem; }
+    .section-tag { font-size: 0.6rem; margin-bottom: 16px; }
+    section { padding: var(--section-pad) 0; }
+    .about h2, .cta h2 { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+    .cta { padding: 80px var(--container-px); }
+    .cta p { font-size: 1rem; }
+    .service-item { padding: 40px 24px; }
+    .service-item h3 { font-size: 1.6rem; }
+    .benefits-grid { grid-template-columns: 1fr; gap: 24px; }
+    .benefit-card { padding: 32px 24px; }
+    .benefit-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .benefit-card h3 { font-size: 1.3rem; }
+    .process-grid { gap: 16px; }
+    .step-card { padding: 24px 16px; }
+    footer .container { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-left { align-items: center; }
+    .footer-right { width: 100%; justify-content: center; }
+    footer .links { gap: 20px; }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    :root { --container-px: 16px; --section-pad: 48px; }
+    .hero h1 { font-size: clamp(1.4rem, 12vw, 2.2rem); line-height: 1.1; }
+    .hero-footer { gap: 16px; }
+    .hero-bullets li { font-size: 0.85rem; }
+    .hero-media img { max-height: 50vh; min-height: 320px; }
+    .cta { padding: 60px var(--container-px); }
+    .cta p { font-size: 0.95rem; }
+    .btn { padding: 14px 28px; font-size: 0.65rem; width: 100%; text-align: center; }
+    nav { width: 100%; }
+    .service-item { padding: 32px 20px; }
+    .service-item h3 { font-size: 1.4rem; }
+    .about p { font-size: 1rem; }
+    .benefit-card { padding: 28px 20px; }
+    .benefit-icon { font-size: 2.2rem; }
+    .benefit-card h3 { font-size: 1.2rem; }
+}

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка загрузки изображений</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+        .image-test {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        .image-test.loaded {
+            border-color: #4CAF50;
+            background: #f1f8f4;
+        }
+        .image-test.error {
+            border-color: #f44336;
+            background: #fff1f0;
+        }
+        .image-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .status {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+        .status.loaded { background: #4CAF50; }
+        .status.error { background: #f44336; }
+        .image-name {
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+        }
+        .image-size {
+            font-size: 12px;
+            color: #666;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+        .summary {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .summary-item {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .summary-item strong {
+            color: #333;
+        }
+        .icon {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Проверка загрузки изображений</h1>
+        <p class="subtitle">Эта страница проверяет, правильно ли загружаются все изображения вашего сайта</p>
+
+        <div class="image-test" data-image="images/hero-photo.webp">
+            <div class="image-info">
+                <div class="status"></div>
+                <div class="image-name">Hero Photo (WebP)</div>
+                <div class="image-size">Загрузка...</div>
+            </div>
+            <img src="images/hero-photo.webp" alt="Hero">
+        </div>
+
+        <div class="image-test" data-image="images/about-photo.webp">
+            <div class="image-info">
+                <div class="status"></div>
+                <div class="image-name">About Photo (WebP)</div>
+                <div class="image-size">Загрузка...</div>
+            </div>
+            <img src="images/about-photo.webp" alt="About">
+        </div>
+
+        <div class="image-test" data-image="images/work-architecture.webp">
+            <div class="image-info">
+                <div class="status"></div>
+                <div class="image-name">Architecture Work (WebP)</div>
+                <div class="image-size">Загрузка...</div>
+            </div>
+            <img src="images/work-architecture.webp" alt="Architecture">
+        </div>
+
+        <div class="image-test" data-image="images/work-iphone.webp">
+            <div class="image-info">
+                <div class="status"></div>
+                <div class="image-name">iPhone Work (WebP)</div>
+                <div class="image-size">Загрузка...</div>
+            </div>
+            <img src="images/work-iphone.webp" alt="iPhone">
+        </div>
+
+        <div class="image-test" data-image="images/work-furniture.webp">
+            <div class="image-info">
+                <div class="status"></div>
+                <div class="image-name">Furniture Work (WebP)</div>
+                <div class="image-size">Загрузка...</div>
+            </div>
+            <img src="images/work-furniture.webp" alt="Furniture">
+        </div>
+
+        <div class="image-test" data-image="images/work-textile.webp">
+            <div class="image-info">
+                <div class="status"></div>
+                <div class="image-name">Textile Work (WebP)</div>
+                <div class="image-size">Загрузка...</div>
+            </div>
+            <img src="images/work-textile.webp" alt="Textile">
+        </div>
+
+        <div class="summary">
+            <div class="summary-item">
+                <span class="icon">✅</span>
+                <div><strong>Загружено:</strong> <span id="loaded-count">0</span> из 6</div>
+            </div>
+            <div class="summary-item">
+                <span class="icon">❌</span>
+                <div><strong>Ошибок:</strong> <span id="error-count">0</span></div>
+            </div>
+            <div class="summary-item">
+                <span class="icon">📦</span>
+                <div><strong>Общий размер:</strong> <span id="total-size">Вычисляется...</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let loadedCount = 0;
+        let errorCount = 0;
+        let totalSize = 0;
+
+        document.querySelectorAll('.image-test').forEach(container => {
+            const img = container.querySelector('img');
+            const status = container.querySelector('.status');
+            const sizeEl = container.querySelector('.image-size');
+
+            img.addEventListener('load', function() {
+                container.classList.add('loaded');
+                status.classList.add('loaded');
+                loadedCount++;
+                
+                // Попытка получить размер файла
+                fetch(img.src, { method: 'HEAD' })
+                    .then(response => {
+                        const size = response.headers.get('content-length');
+                        if (size) {
+                            const kb = Math.round(size / 1024);
+                            sizeEl.textContent = `${kb} KB`;
+                            totalSize += parseInt(size);
+                            updateSummary();
+                        } else {
+                            sizeEl.textContent = 'Размер неизвестен';
+                        }
+                    })
+                    .catch(() => {
+                        sizeEl.textContent = 'OK';
+                    });
+
+                updateSummary();
+            });
+
+            img.addEventListener('error', function() {
+                container.classList.add('error');
+                status.classList.add('error');
+                sizeEl.textContent = 'Ошибка загрузки!';
+                errorCount++;
+                updateSummary();
+            });
+        });
+
+        function updateSummary() {
+            document.getElementById('loaded-count').textContent = loadedCount;
+            document.getElementById('error-count').textContent = errorCount;
+            
+            if (totalSize > 0) {
+                const mb = (totalSize / 1024 / 1024).toFixed(2);
+                const kb = Math.round(totalSize / 1024);
+                document.getElementById('total-size').textContent = 
+                    totalSize > 1024 * 1024 ? `${mb} MB` : `${kb} KB`;
+            }
+        }
+
+        // Инициализация
+        setTimeout(() => {
+            if (loadedCount === 0 && errorCount === 0) {
+                document.getElementById('total-size').textContent = 'Проверка...';
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
