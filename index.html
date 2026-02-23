@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Профессиональная вёрстка сайтов — чистый код, быстрая загрузка, адаптивный дизайн">
-    <title>Artisan Dev — Профессиональная вёрстка</title>
+    <meta name="description" content="AI-разработчик лендингов под ключ. Создаю современные сайты для бизнеса с использованием AI-инструментов">
+    <title>Artisan Dev — AI-разработчик лендингов</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -87,7 +87,8 @@
         .hero h1 { font-size: clamp(1.8rem, 6vw, 4.8rem); margin-bottom: 4px; max-width: 800px; line-height: 0.95; }
         .hero h1 .outline { color: transparent; -webkit-text-stroke: 1.2px var(--text); animation: textGlitch 3s infinite; }
         .typewriter { display: inline-block; border-right: 3px solid var(--accent); animation: blink 0.7s step-end infinite; }
-        @keyframes blink { 0%, 50% { border-color: var(--accent); } 51%, 100% { border-color: transparent; } }
+        .typewriter-cursor { color: var(--accent); animation: blink 0.7s step-end infinite; margin-left: 4px; }
+        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
         @keyframes textGlitch { 0%, 100% { transform: translate(0); } 20% { transform: translate(-2px, 2px); } 40% { transform: translate(2px, -2px); } 60% { transform: translate(-2px, -2px); } 80% { transform: translate(2px, 2px); } }
         .hero-footer { display: flex; justify-content: flex-start; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 0; }
         .hero-footer .btn { margin-left: 0; }
@@ -156,6 +157,53 @@
         .cta .container { position: relative; z-index: 1; }
         .cta h2 { font-size: clamp(2rem, 5vw, 4.5rem); margin-bottom: 20px; color: var(--text); }
         .cta p { font-size: 1.2rem; font-weight: 300; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; line-height: 1.5; }
+
+        /* Asymmetric Block - AI Approach */
+        .ai-approach { background: var(--bg); padding: var(--section-pad) 0; position: relative; }
+        .ai-approach-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: start; }
+        .ai-approach-left { position: sticky; top: 120px; }
+        .ai-approach-number { font-family: var(--font-head); font-size: clamp(8rem, 15vw, 14rem); font-weight: 900; line-height: 0.8; color: var(--accent); opacity: 0.08; margin-bottom: -40px; }
+        .ai-approach h2 { font-size: clamp(2.5rem, 5vw, 4.2rem); margin-bottom: 32px; line-height: 0.95; }
+        .ai-approach-subtitle { font-size: 1.3rem; font-weight: 300; color: var(--text-muted); line-height: 1.5; max-width: 400px; }
+        .ai-approach-items { display: flex; flex-direction: column; gap: 48px; }
+        .ai-item { padding: 40px; background: var(--bg-alt); border-radius: 24px; border-left: 4px solid var(--accent); transition: var(--transition); }
+        .ai-item:hover { transform: translateX(8px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06); }
+        .ai-item-number { font-family: var(--font-head); font-size: 0.75rem; font-weight: 800; color: var(--accent); letter-spacing: 0.2em; margin-bottom: 16px; }
+        .ai-item h3 { font-size: 1.8rem; margin-bottom: 16px; }
+        .ai-item p { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+
+        /* Layered Block - Expertise */
+        .expertise { background: var(--text); color: #fff; padding: var(--section-pad) 0; position: relative; overflow: hidden; }
+        .expertise::before { content: ''; position: absolute; top: -50%; right: -10%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(255, 77, 0, 0.1) 0%, transparent 70%); pointer-events: none; }
+        .expertise-container { position: relative; z-index: 2; }
+        .expertise-header { margin-bottom: 80px; }
+        .expertise-tag { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.3em; margin-bottom: 24px; display: block; }
+        .expertise h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 24px; color: #fff; }
+        .expertise-intro { font-size: 1.3rem; font-weight: 300; color: rgba(255, 255, 255, 0.7); max-width: 700px; line-height: 1.5; }
+        .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .expertise-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); padding: 48px 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); transition: var(--transition); position: relative; overflow: hidden; }
+        .expertise-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: var(--transition); }
+        .expertise-card:hover::before { transform: scaleX(1); }
+        .expertise-card:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--accent); transform: translateY(-8px); }
+        .expertise-icon { width: 64px; height: 64px; margin-bottom: 32px; display: flex; align-items: center; justify-content: center; background: rgba(255, 77, 0, 0.1); border-radius: 16px; }
+        .expertise-icon svg { width: 32px; height: 32px; stroke: var(--accent); }
+        .expertise-card h3 { font-size: 1.6rem; margin-bottom: 16px; color: #fff; }
+        .expertise-card p { font-size: 0.95rem; font-weight: 300; color: rgba(255, 255, 255, 0.7); line-height: 1.6; }
+
+        @media (max-width: 1024px) {
+            .ai-approach-grid { grid-template-columns: 1fr; gap: 60px; }
+            .ai-approach-left { position: static; }
+            .expertise-grid { grid-template-columns: 1fr; gap: 24px; }
+        }
+
+        @media (max-width: 768px) {
+            .ai-approach-number { font-size: clamp(6rem, 20vw, 10rem); }
+            .ai-item { padding: 32px 24px; }
+            .expertise { padding: 60px 0; }
+            .expertise-header { margin-bottom: 48px; }
+            .expertise-card { padding: 40px 32px; }
+        }
+
 
         footer { padding: 48px 0; border-top: 1px solid #eee; }
         footer .container { display: flex; justify-content: space-between; align-items: center; }
@@ -357,14 +405,15 @@
             <div class="hero-content">
                 <div class="hero-main">
                     <div class="reveal">
-                        <span class="section-tag">Профессиональная вёрстка</span>
-                        <h1>Создаю сайты,<br>которые<br><span style="color:var(--accent); display: inline-block;" class="typewriter" id="typewriter"></span></h1>
+                        <span class="section-tag">AI-разработчик лендингов</span>
+                        <h1 style="font-size: clamp(2.05rem, 8vw, 6.05rem); line-height: 1.1; margin-bottom: 32px; letter-spacing: -0.03em;">Лендинги.<br><span style="white-space: nowrap;"><span id="typewriter-word" style="color:var(--accent);">Быстро.</span><span class="typewriter-cursor">|</span></span></h1>
                     </div>
                     <div class="hero-footer reveal" style="transition-delay: 0.1s;">
-                        <ul class="hero-bullets">
-                            <li>Чистый код — быстрая загрузка</li>
-                            <li>Адаптив под любые экраны</li>
-                            <li>Элементы продуманы под конверсию </li>
+         
+                        <ul class="hero-bullets" style="margin-bottom: 20px;">
+                            <li style="font-size: 0.88rem; line-height: 1.3;">От концепции до запуска за 7-14 дней</li>
+                            <li style="font-size: 0.88rem; line-height: 1.3;">Структура под конверсию, не просто дизайн</li>
+                            <li style="font-size: 0.88rem; line-height: 1.3;">Чистый код + SEO-оптимизация</li>
                         </ul>
                         <a href="#contact" class="btn"><span>Обсудить проект</span></a>
                     </div>
@@ -385,8 +434,8 @@
                 </div>
                 <div class="about-content reveal">
                     <span class="section-tag">О специалисте</span>
-                    <h2>Я - фронтенд-верстальщик</h2>
-                    <p>Специализируюсь на аккуратной, адаптивной и понятной вёрстке. Беру дизайн и превращаю его в живой сайт — точный, быстрый и удобный для пользователя.</p>
+                    <h2>AI-разработчик лендингов</h2>
+                    <p>Создаю современные лендинги под ключ с использованием AI-инструментов для ускорения процесса. Работаю с работодателями, HR и прямыми клиентами. Понимаю маркетинг, структуру продаж и технические требования.</p>
                 </div>
             </div>
         </section>
@@ -396,10 +445,10 @@
             <div class="container">
                 <div class="reveal"><span class="section-tag">Что я делаю</span><h2 style="font-size: 3.4rem; margin-bottom: 60px;">Услуги</h2></div>
                 <div class="services-list">
-                    <div class="service-item reveal"><h3>Вёрстка лендингов</h3><p>Идеальное воплощение дизайнерской мысли.</p></div>
-                    <div class="service-item reveal"><h3>Адаптив под всё</h3><p>Безупречная работа на любых устройствах.</p></div>
-                    <div class="service-item reveal"><h3>Анимации</h3><p>Плавные интерфейсные взаимодействия.</p></div>
-                    <div class="service-item reveal"><h3>SEO & Скорость</h3><p>Семантическая вёрстка и Google PageSpeed.</p></div>
+                    <div class="service-item reveal"><h3>Лендинги под ключ</h3><p>От концепции и структуры до готового сайта с адаптивом и анимациями.</p></div>
+                    <div class="service-item reveal"><h3>AI-ускоренная разработка</h3><p>Использую нейросети для быстрого прототипирования и генерации идей.</p></div>
+                    <div class="service-item reveal"><h3>Маркетинговая структура</h3><p>Проектирую страницы с учётом воронки продаж и конверсионных элементов.</p></div>
+                    <div class="service-item reveal"><h3>Техническое качество</h3><p>Чистый код, SEO-оптимизация, высокая скорость загрузки.</p></div>
                 </div>
             </div>
         </section>
@@ -429,73 +478,76 @@
                 
         </section>
 
-        <!-- Process -->
-        <section class="about">
+        <!-- AI Approach - Asymmetric Block -->
+        <section class="ai-approach">
             <div class="container">
-                <div class="reveal">
-                    <span class="section-tag">Процесс работы</span>
-                    <h2 style="font-size: 3.4rem; margin-bottom: 60px;">Как я работаю</h2>
-                </div>
-                <div class="process-grid">
-                    <div class="step-card reveal">
-                        <span class="step-num">01</span>
-                        <h3>Анализ</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Изучение дизайна и составление ТЗ.</p>
+                <div class="ai-approach-grid">
+                    <div class="ai-approach-left reveal">
+                        <div class="ai-approach-number">AI</div>
+                        <span class="section-tag">Подход к разработке</span>
+                        <h2>Использую AI<br>как инструмент<br>ускорения</h2>
+                        <p class="ai-approach-subtitle">Нейросети помогают быстрее генерировать идеи и прототипы, но финальное качество — всегда ручная работа.</p>
                     </div>
-                    <div class="step-card reveal" style="transition-delay: 0.1s;">
-                        <span class="step-num">02</span>
-                        <h3>Код</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Написание чистой структуры и стилей.</p>
-                    </div>
-                    <div class="step-card reveal" style="transition-delay: 0.2s;">
-                        <span class="step-num">03</span>
-                        <h3>Тесты</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Проверка на всех браузерах и iPhone/Android.</p>
-                    </div>
-                    <div class="step-card reveal" style="transition-delay: 0.3s;">
-                        <span class="step-num">04</span>
-                        <h3>Релиз</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Запуск и поддержка проекта.</p>
+                    <div class="ai-approach-items">
+                        <div class="ai-item reveal" style="transition-delay: 0.1s;">
+                            <div class="ai-item-number">01 — КОНЦЕПЦИЯ</div>
+                            <h3>Быстрое прототипирование</h3>
+                            <p>AI помогает сгенерировать структуру страницы, варианты текстов и UI-направления. Это экономит время на старте и позволяет быстрее перейти к реализации.</p>
+                        </div>
+                        <div class="ai-item reveal" style="transition-delay: 0.2s;">
+                            <div class="ai-item-number">02 — РЕАЛИЗАЦИЯ</div>
+                            <h3>Ручная доводка качества</h3>
+                            <p>Финальный интерфейс, типографику, адаптивность и логику я довожу вручную. AI — это ускоритель, но не замена экспертизе.</p>
+                        </div>
+                        <div class="ai-item reveal" style="transition-delay: 0.3s;">
+                            <div class="ai-item-number">03 — РЕЗУЛЬТАТ</div>
+                            <h3>Скорость + качество</h3>
+                            <p>Вы получаете проект быстрее, чем при классической разработке, но с тем же уровнем аккуратности и внимания к деталям.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Benefits -->
-        <section class="benefits">
-            <div class="container">
-                <div class="reveal">
-                    <span class="section-tag">Преимущества</span>
-                    <h2 style="font-size: 3.4rem; margin-bottom: 60px;">Почему со мной удобно</h2>
+        <!-- Expertise - Layered Block -->
+        <section class="expertise">
+            <div class="container expertise-container">
+                <div class="expertise-header reveal">
+                    <span class="expertise-tag">Экспертность</span>
+                    <h2>Понимаю маркетинг<br>и структуру</h2>
+                    <p class="expertise-intro">Лендинг — это не просто красивая картинка. Это инструмент продаж. Я проектирую страницы с учётом пользовательского пути и конверсионных элементов.</p>
                 </div>
-                <div class="benefits-grid">
-                    <div class="benefit-card reveal">
-                        <div class="benefit-icon">
+                <div class="expertise-grid">
+                    <div class="expertise-card reveal" style="transition-delay: 0.1s;">
+                        <div class="expertise-icon">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h3>Чистый код</h3>
-                        <p>Семантическая разметка и структурированные стили. Любой разработчик легко разберётся в проекте.</p>
+                        <h3>Структура продаж</h3>
+                        <p>Выстраиваю логику страницы по воронке: внимание → интерес → доверие → действие. Каждый блок работает на конверсию.</p>
                     </div>
-                    <div class="benefit-card reveal" style="transition-delay: 0.1s;">
-                        <div class="benefit-icon">
+                    <div class="expertise-card reveal" style="transition-delay: 0.2s;">
+                        <div class="expertise-icon">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="12" r="10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h3>Быстрая загрузка</h3>
-                        <p>Оптимизация производительности с первого дня. Высокие показатели Google PageSpeed.</p>
+                        <h3>Быстрая разработка</h3>
+                        <p>Использую AI-инструменты для ускорения процесса, но финальное качество контролирую вручную. Скорость без потери аккуратности.</p>
                     </div>
-                    <div class="benefit-card reveal" style="transition-delay: 0.2s;">
-                        <div class="benefit-icon">
+                    <div class="expertise-card reveal" style="transition-delay: 0.3s;">
+                        <div class="expertise-icon">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                                <path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h3>Соблюдение сроков</h3>
-                        <p>Чёткое планирование этапов работы. Сдача проекта точно в оговорённые сроки.</p>
+                        <h3>Техническая чистота</h3>
+                        <p>Семантический HTML, структурированный CSS, оптимизация под SEO и скорость загрузки. Код, с которым удобно работать.</p>
                     </div>
                 </div>
             </div>
@@ -504,8 +556,8 @@
         <!-- CTA -->
         <section id="contact" class="cta">
             <div class="container reveal">
-                <h2>Готов начать?</h2>
-                <p>Обсудим ваш проект, подберём решение и договоримся<br>о сроках. Первая консультация — бесплатно.</p>
+                <h2>Готовы начать проект?</h2>
+                <p><br>Обсудим вашу задачу и найдём оптимальное решение.</p>
                 <a href="https://t.me/SnezhinKirill" class="btn"><span>Связаться в Telegram</span></a>
             </div>
         </section>
@@ -537,6 +589,51 @@
     <script>
         // Критический JS для первой загрузки
         document.body.classList.remove('no-js');
+        
+        // Typewriter effect с постепенным стиранием
+        const words = ['Быстро.', 'Эффективно.', 'Качественно.', 'Современно.', 'Надёжно.'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 150;
+        
+        function typeWriter() {
+            const element = document.getElementById('typewriter-word');
+            if (!element) return;
+            
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                // Стираем символы
+                element.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 80;
+            } else {
+                // Печатаем символы
+                element.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 150;
+            }
+            
+            // Когда слово напечатано полностью
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000; // Пауза перед стиранием
+                isDeleting = true;
+            }
+            // Когда слово стёрто полностью
+            else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length; // Переход к следующему слову
+                typeSpeed = 500; // Пауза перед печатью нового слова
+            }
+            
+            setTimeout(typeWriter, typeSpeed);
+        }
+        
+        // Запускаем эффект после загрузки страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(typeWriter, 1000); // Задержка перед стартом
+        });
         
         // Плавная прокрутка для всех якорных ссылок
         document.addEventListener('DOMContentLoaded', () => {

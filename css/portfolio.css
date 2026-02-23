@@ -69,10 +69,13 @@ html {
     height: 100%;
     object-fit: cover;
     transition: transform 1.8s;
+    filter: contrast(1.05) brightness(1.02) saturate(1.1) sharpen(1);
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .portfolio__item:hover .portfolio__image img {
     transform: scale(1.06);
+    filter: contrast(1.08) brightness(1.03) saturate(1.15);
 }
 
 /* Оверлей */
